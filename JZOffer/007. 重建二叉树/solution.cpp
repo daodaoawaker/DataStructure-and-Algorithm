@@ -56,3 +56,51 @@ public:
     }
 };
 
+
+
+
+/************************** Solution-02 *************************
+ * 解题思路：
+ *     总体的思路一样的，还是先找到根节点在中序遍历序列中的位置，然后不断地找出左、右子树各自在
+ * 前序和中序序列中的范围。只是换了递归函数的写法，使用左右子树的范围索引作为参数
+*/
+
+class Solution {
+public:
+    TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> vin) {
+        // pre和vin的长度是相等的
+        PreSequence = pre;
+        InSequence = vin;
+        int size = (int)pre.size();
+        if (size == 0) return nullptr;
+
+        TreeNode* root = buildBiTree(0, size - 1, 0, size - 1); 
+        return root;       
+    }
+
+    TreeNode* buildBiTree(int pre_l, int pre_r, int in_l, int in_r) {
+        // 递归出口
+        if (pre_l > pre_r) return nullptr;
+        
+        int root = PreSequence[pre_l];
+        TreeNode* node = new TreeNode(root);
+        int id = 0;
+        // 遍历中序序列找到根节点的索引位置
+        while (id <= in_r) {
+            if (root == InSequence[id]) { break; }
+            id++;
+        }
+        // 新的序列长度
+        int len = id - in_l; 
+
+        // 分别递归查找左右子节点
+        node->left = buildBiTree(pre_l + 1, pre_l + len, in_l, in_l + len - 1);
+        node->right = buildBiTree(pre_l + len + 1, pre_r, in_l + len + 1, in_r);
+        return node;
+    }
+
+public:
+    vector<int> PreSequence;
+    vector<int> InSequence;
+
+};
