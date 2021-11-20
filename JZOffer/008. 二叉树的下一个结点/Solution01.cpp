@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 
+
 using namespace std;
 
 
@@ -9,7 +10,7 @@ struct TreeNode {
     struct TreeNode* left;
     struct TreeNode* right;
     struct TreeNode* next;
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr), next(nullptr) {}
 };
 
 
