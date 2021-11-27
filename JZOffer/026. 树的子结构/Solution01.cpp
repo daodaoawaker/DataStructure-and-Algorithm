@@ -29,6 +29,7 @@ public:
 
     // 以pHead1和pHead2为头节点的两颗子树是否具有相同的结构（以pHead1为主）
     bool isSub(TreeNode* pHead1, TreeNode* pHead2) {
+        // ！！需要注意这两个判断条件的先后顺序
         if (!pHead2) return true;
         if (!pHead1) return false;
 
