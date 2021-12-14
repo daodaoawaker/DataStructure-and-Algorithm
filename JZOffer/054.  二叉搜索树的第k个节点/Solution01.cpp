@@ -20,24 +20,24 @@ struct TreeNode {
 */
 class Solution {
 public:
-    TreeNode* kthNode(TreeNode* pRoot, int k) {
-        if (!pRoot) return nullptr;
+    int KthNode(TreeNode* pRoot, int k) {
+        if (!pRoot || k == 0) return -1;
 
         InOrderTraverse(pRoot);
-        if (k > array.size()) return nullptr;
+        if (k > array.size()) return -1;
         
         return array[k - 1];
     }
 
     void InOrderTraverse(TreeNode* root) {
-        if (!root) return nullptr;
+        if (!root) return;
 
         InOrderTraverse(root->left);
-        array.push_back(root);
+        array.push_back(root->val);
         InOrderTraverse(root->right);
     }
 
 private:
-    vector<TreeNode*> array;
+    vector<int> array;
 
 };
