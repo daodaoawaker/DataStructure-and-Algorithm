@@ -12,7 +12,7 @@ struct TreeNode {
     struct TreeNode* right;
     struct TreeNode* next;
     TreeNode(int x) : val(x), left(nullptr), right(nullptr), next(nullptr) {}
-}
+};
 
 
 
