@@ -11,7 +11,7 @@ struct TreeNode {
     struct TreeNode* left;
     struct TreeNode* right;
     TreeNode(elemType x) : val(x), left(nullptr), right(nullptr) {}
-}
+};
 
 
 
