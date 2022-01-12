@@ -39,5 +39,4 @@ public:
 
 private:
     vector<int> array;
-
 };
