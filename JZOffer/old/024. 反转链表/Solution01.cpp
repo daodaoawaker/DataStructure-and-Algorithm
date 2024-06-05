@@ -13,14 +13,14 @@ struct ListNode {
 
 /************************* Solution-01 ************************
  * 解题思路:
- *     使用递归的思路先到达链表的末尾结点(在这个过程中需要创建局部变量用来保存前驱结点和当前结点)，
+ * 使用递归的思路先到达链表的末尾结点(在这个过程中需要创建局部变量用来保存前驱结点和当前结点)，
  * 然后从后往前依次改变当前结点和前驱结点之间的连接关系，实现结点指向的反转
 */
 class Solution {
 public:
     ListNode* ReverseList(ListNode* pHead) {
         if (!pHead) return pHead;
-		
+
         preHead->next = pHead;
         DFS(preHead, pHead);
         pHead->next = nullptr;
@@ -34,7 +34,7 @@ public:
             return;
         }
         ListNode* pre = new ListNode(0);
-        ListNode* cur  = new ListNode(0);
+        ListNode* cur = new ListNode(0);
         pre = preNode;
         cur = curNode;
 

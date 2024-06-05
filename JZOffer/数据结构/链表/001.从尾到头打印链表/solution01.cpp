@@ -3,10 +3,9 @@
 
 
 struct ListNode {
-    ListNode(int x) : val(x), next(nullptr) {}
-
     int val;
     ListNode *next;
+    ListNode(int x) : val(x), next(nullptr) {}
 };
 
 
