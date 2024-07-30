@@ -18,9 +18,10 @@ class Solution {
 public:
     ListNode* EntryNodeOfLoop(ListNode* pHead) {
         if (!pHead) return nullptr;
-        
-        std::map<ListNode*, int> node_map;
+
         ListNode* cur = pHead;
+        std::map<ListNode*, int> node_map;
+
         while (cur) {
             if (node_map.count(cur)) {
                 return cur;
